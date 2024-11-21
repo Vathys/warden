@@ -1,0 +1,52 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[project]
+authors = [{ name = "Vathys00", email = "deepdesai00@gmail.com" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Programming Language :: Python",
+]
+dependencies = [
+    "chromadb",
+    "fastapi",
+    "langchain-core",
+    "langchain-ollama",
+    "langgraph",
+]
+description = 'A package to accompany the Sarjan Project. It will provide a writing assistant for any project built with Sarjan.'
+dynamic = ["version"]
+keywords = []
+license = "MIT"
+name = "sarjan_warden"
+readme = "README.md"
+requires-python = ">=3.8"
+
+[project.urls]
+Documentation = "https://github.com/Vathys00/sarjan#readme"
+Issues = "https://github.com/Vathys00/sarjan/issues"
+Source = "https://github.com/Vathys00/sarjan"
+
+[tool.hatch.version]
+path = "src/sarjan_warden/__init__.py"
+source = "code"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source_pkgs = ["tests", "sarjan_warden"]
+
+[tool.coverage.paths]
+sarjan = ["*/sarjan_warden/src/sarjan_warden", "src/sarjan_warden"]
+tests = ["*/sarjan_warden/tests", "tests"]
+
+[tool.coverage.report]
+exclude_lines = ["if TYPE_CHECKING:", "if __name__ == .__main__.:", "no cov"]
